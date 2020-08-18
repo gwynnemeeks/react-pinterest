@@ -16,6 +16,7 @@ class MyNavBar extends React.Component {
 
   render() {
     const { authed } = this.props;
+
     return (
       <div className="MyNavBar">
       <nav className="navbar fixed-top navbar-light bg-light">
