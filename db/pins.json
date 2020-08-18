@@ -1,0 +1,32 @@
+{
+    "pin1": {
+        "imageUrl": "https://cdn.diyncrafts.com/wp-content/uploads/2015/05/gardening-tips-ideas-hacks-560x800.jpg",
+        "pinName": "100 DIY Gardening Crafts",
+        "boardId": "board1"
+    },
+    "pin2": {
+        "imageUrl": "https://www.apieceofrainbow.com/wp-content/uploads/2019/09/2019-9-logo.png",
+        "pinName": "42 BEST DIY GREENHOUSES",
+        "boardId": "board1"
+    },
+    "pin3": {
+        "imageUrl": "https://i0.wp.com/kaseytrenum.com/wp-content/uploads/2020/02/Sheet-Pan-Sausage-Veggies.jpg?w=735&ssl=1",
+        "pinName": "Sheet Pan Sausage & Veggies",
+        "boardId": "board2"
+    },
+    "pin4": {
+        "imageUrl": "https://i0.wp.com/letthebakingbegin.com/wp-content/uploads/2019/07/Mongolian-Beef-with-Green-Onion-1-2.jpg?resize=600%2C900&ssl=1",
+        "pinName": "Mongolian Beef Recipe",
+        "boardId": "board2"
+    },
+    "pin5": {
+        "imageUrl": "https://i.mydramalist.com/eEkppc.jpg?v=1",
+        "pinName": "Mystic Pop-Up Bar",
+        "boardId": "board3"
+    },
+    "pin6": {
+        "imageUrl": "https://i.mydramalist.com/4DXeJc.jpg?v=1",
+        "pinName": "It's Okay Not to be Okay",
+        "boardId": "board3"
+    }
+}
