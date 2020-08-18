@@ -7,8 +7,6 @@ import fbConnection from '../data/connection';
 import BoardContainer from '../components/BoardContainer/BoardContainer';
 import MyNavBar from '../components/MyNavBar/MyNavBar';
 
-import Auth from '../components/Auth/Auth';
-
 import './App.scss';
 
 fbConnection.firebaseApp();
@@ -39,17 +37,13 @@ class App extends React.Component {
       if (authed) {
         return <BoardContainer />;
       }
-      return <Auth />;
+      return '';
     };
 
     return (
       <div className="App">
-        <h2>React-Pinterest</h2>
-        <button className="btn btn-success">Success <i class="fas fa-heart">
-        <MyNavBar />
+        <MyNavBar authed={authed}/>
         {loadComponent()}
-          </i>
-          </button>
       </div>
     );
   }
