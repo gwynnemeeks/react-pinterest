@@ -18,19 +18,18 @@ class MyNavBar extends React.Component {
     const { authed } = this.props;
 
     return (
-      <div className="MyNavBar">
-      <nav className="navbar fixed-top navbar-light bg-light">
-        <div className="navbar-brand" href="#">
-           Gwynterist
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <a className="navbar-brand" href="/"><sup>GWYN</sup> | <sub>TERST</sub></a>
+      <ul className="navbar-nav ml-auto">
+        <li className="nav-item">
           {
             authed
-              ? <button className="btn btn-danger" onClick={this.logOutEvent}>Sign Out</button>
+              ? <button className="nav-link btn btn-danger text-light logout-button" onClick={this.logOutEvent}><i className="fas fa-sign-out-alt"></i> Logout </button>
               : <Auth />
           }
-
-        </div>
-      </nav>
-     </div>
+        </li>
+      </ul>
+    </nav>
     );
   }
 }
