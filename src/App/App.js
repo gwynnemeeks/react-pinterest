@@ -55,7 +55,6 @@ class App extends React.Component {
       <div className="App">
         <MyNavBar authed={authed}/>
         {loadComponent()}
-        {/* <MyPins authed={authed}/> */}
       </div>
     );
   }
