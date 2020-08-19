@@ -5,12 +5,10 @@ import utils from '../helpers/utils';
 
 const baseUrl = apiKeys.firebaseConfig.databaseURL;
 
-const getBoardsByUid = (uid) => new Promise((resolve, reject) => {
-  axios.get(`${baseUrl}/boards.json?orderBy="uid"&equalTo="${uid}"`)
+const getPinsByBoardId = (boardId) => new Promise((resolve, reject) => {
+  axios.get(`${baseUrl}/pins.json?orderBy="boardId"&equalTo="${boardId}"`)
     .then(({ data }) => resolve(utils.convertFirebaseCollection(data)))
     .catch((err) => console.error(err));
 });
 
-const getSingleBoard = (boardId) => axios.get(`${baseUrl}/boards/${boardId}.json`);
-
-export default { getBoardsByUid, getSingleBoard };
+export default { getPinsByBoardId };
