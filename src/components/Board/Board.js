@@ -1,10 +1,18 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import boardShape from '../../helpers/propz/boardShape';
 
 class Board extends React.Component {
     static propTypes = {
       board: boardShape.boardShape,
+      setSingleBoard: PropTypes.func.isRequired,
+    }
+
+    singleBoardEvent = (e) => {
+      e.preventDefault();
+      const { board, setSingleBoard } = this.props;
+      setSingleBoard(board.id);
     }
 
     render() {
@@ -13,6 +21,7 @@ class Board extends React.Component {
         <div className="card">
         <div className="card-body">
         <h4 className="card-title">{board.boardName}</h4>
+        <button className="btn btn-secondary" onClick={this.singleBoardEvent}> View Board </button>
     </div>
 </div>
       );

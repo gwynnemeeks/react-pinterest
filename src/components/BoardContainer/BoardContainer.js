@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Board from '../Board/Board';
 
@@ -6,6 +7,10 @@ import authData from '../../data/authData';
 import boardsData from '../../data/boardsData';
 
 class BoardContainer extends React.Component {
+  static propTypes = {
+    setSingleBoard: PropTypes.func.isRequired,
+  }
+
   state = {
     boards: [],
   }
@@ -18,8 +23,9 @@ class BoardContainer extends React.Component {
 
   render() {
     const { boards } = this.state;
+    const { setSingleBoard } = this.props;
 
-    const boardCard = boards.map((board) => <Board key={board.id} board={board}/>);
+    const boardCard = boards.map((board) => <Board key={board.id} board={board} setSingleBoard={setSingleBoard} />);
 
     return (
       <div className="card-columns">
