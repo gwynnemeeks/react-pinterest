@@ -5,6 +5,7 @@ import Board from '../Board/Board';
 
 import authData from '../../data/authData';
 import boardsData from '../../data/boardsData';
+import smashData from '../../data/smash';
 
 class BoardContainer extends React.Component {
   static propTypes = {
@@ -26,7 +27,7 @@ componentDidMount() {
 }
 
 deleteBoard = (boardId) => {
-  boardsData.deleteBoard(boardId)
+  smashData.removeBoardAndPins(boardId)
     .then(() => {
       this.goGetYoBoards();
     })
