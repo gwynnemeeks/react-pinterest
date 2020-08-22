@@ -15,24 +15,36 @@ class BoardContainer extends React.Component {
     boards: [],
   }
 
-  componentDidMount() {
-    boardsData.getBoardsByUid(authData.getUid())
-      .then((boards) => this.setState({ boards }))
-      .catch((err) => console.error('get boards broke', err));
-  }
+goGetYoBoards = () => {
+  boardsData.getBoardsByUid(authData.getUid())
+    .then((boards) => this.setState({ boards }))
+    .catch((err) => console.error('get boards broke', err));
+}
 
-  render() {
-    const { boards } = this.state;
-    const { setSingleBoard } = this.props;
+componentDidMount() {
+  this.goGetYoBoards();
+}
 
-    const boardCard = boards.map((board) => <Board key={board.id} board={board} setSingleBoard={setSingleBoard} />);
+deleteBoard = (boardId) => {
+  boardsData.deleteBoard(boardId)
+    .then(() => {
+      this.goGetYoBoards();
+    })
+    .catch((err) => console.error('delete boards sucks', err));
+}
 
-    return (
+render() {
+  const { boards } = this.state;
+  const { setSingleBoard } = this.props;
+
+  const boardCard = boards.map((board) => <Board key={board.id} board={board} setSingleBoard={setSingleBoard} deleteBoard={this.deleteBoard}/>);
+
+  return (
       <div className="card-columns">
         { boardCard }
      </div>
-    );
-  }
+  );
+}
 }
 
 export default BoardContainer;
