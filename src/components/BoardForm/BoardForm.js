@@ -12,7 +12,7 @@ class BoardForm extends React.Component {
     }
 
     state = {
-      name: '',
+      boardName: '',
       // make object based on fields
     }
 

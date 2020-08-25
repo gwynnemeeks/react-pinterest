@@ -60,8 +60,8 @@ render() {
 
   return (
     <div>
-      <button className="btn btn-warning" onClick={() => { this.setState({ formOpen: !formOpen }); }}><i className="far fa-plus-square"></i></button>
-      { formOpen ? <BoardForm createBoard={this.createBoard}/> : '' }
+      <button className="btn btn-warning" onClick={() => { this.setState({ formOpen: !formOpen }); }}><i className={formOpen ? 'far fa-times-circle' : 'far fa-plus-square'}></i></button>
+          {formOpen ? <BoardForm createBoard={this.createBoard} /> : ''}
       <div className="card-columns">
         {boardCard}
       </div>
