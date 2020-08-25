@@ -52,11 +52,15 @@ createBoard = (newBoard) => {
     .catch((err) => console.error('create boards broke', err));
 }
 
+editABoard = () => {
+  this.setState({ formOpen: true });
+}
+
 render() {
   const { boards, formOpen } = this.state;
   const { setSingleBoard } = this.props;
 
-  const boardCard = boards.map((board) => <Board key={board.id} board={board} setSingleBoard={setSingleBoard} deleteBoard={this.deleteBoard}/>);
+  const boardCard = boards.map((board) => <Board key={board.id} board={board} setSingleBoard={setSingleBoard} deleteBoard={this.deleteBoard} editABoard={this.editABoard}/>);
 
   return (
     <div>

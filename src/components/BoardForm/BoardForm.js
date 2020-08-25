@@ -3,8 +3,13 @@ import PropTypes from 'prop-types';
 
 import authData from '../../data/authData';
 
-// newBoard requires:
-// name
+// editBoard requires:
+// boardForm for updating
+// add edit button to boards
+// on click open bf with inputs populated with board info
+// on save/submit the board should update
+// rerender the board container
+// switchy button with a conditional
 
 class BoardForm extends React.Component {
     static propTypes = {
@@ -13,10 +18,8 @@ class BoardForm extends React.Component {
 
     state = {
       boardName: '',
-      // make object based on fields
     }
 
-    // there will be a change Event for each field
     changeNameEvent = (e) => {
       e.preventDefault();
       this.setState({ boardName: e.target.value });
