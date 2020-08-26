@@ -14,7 +14,8 @@ import authData from '../../data/authData';
 class BoardForm extends React.Component {
     static propTypes = {
       createBoard: PropTypes.func.isRequired,
-      board: PropTypes.object.isRequired,
+      updateBoard: PropTypes.func.isRequired,
+      boardThatIAmEditing: PropTypes.object.isRequired,
     }
 
     state = {
@@ -23,10 +24,10 @@ class BoardForm extends React.Component {
     }
 
     componentDidMount() {
-      const { board } = this.props;
-      if (board.boardName) {
+      const { boardThatIAmEditing } = this.props;
+      if (boardThatIAmEditing.boardName) {
         this.setState({
-          name: board.boardName,
+          name: boardThatIAmEditing.boardName,
           isEditing: true,
         });
       }
@@ -49,7 +50,18 @@ class BoardForm extends React.Component {
         uid: authData.getUid(),
       };
       createBoard(newBoard);
-      console.warn('here is a new board', newBoard);
+    }
+
+    editBoardEvent = (e) => {
+      e.preventDefault();
+      const { boardName } = this.state;
+      const { updateBoard, boardThatIAmEditing } = this.props;
+
+      const myBoardWithChanges = {
+        boardName,
+        uid: authData.getUid(),
+      };
+      updateBoard(boardThatIAmEditing.id, myBoardWithChanges);
     }
 
     render() {
@@ -68,10 +80,10 @@ class BoardForm extends React.Component {
                     />
                 </div>
                 {
-                  isEditing
-                    ? <button className="btn btn-light">Edit Board</button>
-                    : <button className="btn btn-dark" onClick={this.saveBoardEvent}>Save Board</button>
-                }
+          isEditing
+            ? <button className="btn btn-light" onClick={this.editBoardEvent}>Edit Board</button>
+            : <button className="btn btn-dark" onClick={this.saveBoardEvent}>Save Board</button>
+        }
 
             </form>
       );

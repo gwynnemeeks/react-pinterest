@@ -57,6 +57,15 @@ editABoard = (boardToEdit) => {
   this.setState({ formOpen: true, editBoard: boardToEdit });
 }
 
+updateBoard = (boardId, editedBoard) => {
+  boardsData.updateBoard(boardId, editedBoard)
+    .then(() => {
+      this.getBoards();
+      this.setState({ formOpen: false, editBoard: {} });
+    })
+    .catch((err) => console.error('Update Board Borked', err));
+}
+
 render() {
   const { boards, formOpen, editBoard } = this.state;
   const { setSingleBoard } = this.props;
@@ -66,7 +75,7 @@ render() {
   return (
     <div>
       <button className="btn btn-warning" onClick={() => { this.setState({ formOpen: !formOpen }); }}><i className={formOpen ? 'far fa-times-circle' : 'far fa-plus-square'}></i></button>
-          {formOpen ? <BoardForm createBoard={this.createBoard} board={editBoard}/> : ''}
+          {formOpen ? <BoardForm createBoard={this.createBoard} boardThatIAmEditing={editBoard} updateBoard={this.updateBoard}/> : ''}
       <div className="card-columns">
         {boardCard}
       </div>

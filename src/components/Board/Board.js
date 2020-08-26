@@ -36,9 +36,9 @@ class Board extends React.Component {
         <div className="card-body">
         <h4 className="card-title">{board.boardName}</h4>
         <div className="btn-group" role="group">
-        <button className="btn btn-secondary" onClick={this.singleBoardEvent}> View Board </button>
-        <button className="btn btn-warning" onClick={this.editBoardEvent}> Edit Board </button>
-        <button className="btn btn-danger" onClick={this.deleteBoardEvent}> Delete Board </button>
+        <button className="btn btn-secondary" onClick={this.singleBoardEvent}><i className="far fa-eye"></i></button>
+        <button className="btn btn-warning" onClick={this.editBoardEvent}><i className="far fa-edit"></i></button>
+        <button className="btn btn-danger" onClick={this.deleteBoardEvent}><i class="fas fa-eraser"></i></button>
         </div>
     </div>
 </div>
