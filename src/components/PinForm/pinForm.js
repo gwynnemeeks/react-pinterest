@@ -23,9 +23,9 @@ class PinForm extends React.Component {
 
     componentDidMount() {
       const { editingPin } = this.props;
-      if (editingPin.name) {
+      if (editingPin.pinName) {
         this.setState({
-          pinName: editingPin.name,
+          pinName: editingPin.pinName,
           imageUrl: editingPin.imageUrl,
           boardId: editingPin.boardId,
           isEditing: true,
@@ -101,7 +101,7 @@ class PinForm extends React.Component {
         </div>
         {
           isEditing
-            ? <button className="btn btn-dark" onClick={this.editPinEvent}><i className="fas fa-pen-nib"></i></button>
+            ? <button className="btn btn-light" onClick={this.editPinEvent}><i className="fas fa-pen-nib"></i></button>
             : <button className="btn btn-dark" onClick={this.savePinEvent}><i className="fas fa-save"></i></button>
         }
 
