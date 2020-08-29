@@ -17,9 +17,10 @@ class SingleBoard extends React.Component {
       board: {},
       pins: [],
       showForm: false,
+      editPins: {},
     }
 
-    goGetYoPins = () => {
+    getPins = () => {
       const { boardId } = this.props;
 
       pinsData.getPinsByBoardId(boardId)
@@ -34,13 +35,13 @@ class SingleBoard extends React.Component {
         .then((response) => this.setState({ board: response.data }))
         .catch((err) => console.error('get single board failed', err));
 
-      this.goGetYoPins();
+      this.getPins();
     }
 
     deletePin = (pinId) => {
       pinsData.deletePin(pinId)
         .then(() => {
-          this.goGetYoPins();
+          this.getPins();
         })
         .catch((err) => console.error('delete pins failed', err));
     }
@@ -48,23 +49,41 @@ class SingleBoard extends React.Component {
     createPin = (newPin) => {
       pinsData.createPin(newPin)
         .then(() => {
-          this.goGetYoPins();
+          this.getPins();
           this.setState({ showForm: false });
         })
         .catch((err) => console.error(err));
     }
 
+    editAPin = (pinToEdit) => {
+      this.setState({ showForm: true, editPins: pinToEdit });
+    }
+
+    updatePin = (pinId, editedPin) => {
+      pinsData.updatePin(pinId, editedPin)
+        .then(() => {
+          this.getPins();
+          this.setState({ showForm: false, editPins: {} });
+        })
+        .catch((err) => console.error('update pins is a failure'));
+    }
+
     render() {
-      const { board, pins, showForm } = this.state;
+      const {
+        board,
+        pins,
+        showForm,
+        editPins,
+      } = this.state;
       const { setSingleBoard, boardId } = this.props;
 
-      const pinCards = pins.map((pin) => <Pin key={pin.id} pin={pin} deletePin={this.deletePin}/>);
+      const pinCards = pins.map((pin) => <Pin key={pin.id} pin={pin} deletePin={this.deletePin} editAPin={this.editAPin}/>);
 
       return (
         <div>
             <h4>{board.boardName}</h4>
             <button className="btn btn-warning" onClick={() => { this.setState({ showForm: !showForm }); }}><i className={showForm ? 'far fa-times-circle' : 'far fa-plus-square'}></i></button>
-          {showForm ? <PinForm boardId={boardId} createPin={this.createPin} /> : ''}
+          {showForm ? <PinForm boardId={boardId} createPin={this.createPin} editingPin={editPins} updatePin={this.updatePin}/> : ''}
             <div className="card-columns">
               {pinCards}
             </div>

@@ -10,12 +10,27 @@ import authData from '../../data/authData';
 class PinForm extends React.Component {
     static propTypes = {
       createPin: PropTypes.func.isRequired,
+      updatePin: PropTypes.func.isRequired,
+      editingPin: PropTypes.object.isRequired,
     }
 
     state = {
       imageUrl: '',
       pinName: '',
       boardId: '',
+      isEditing: false,
+    }
+
+    componentDidMount() {
+      const { editingPin } = this.props;
+      if (editingPin.pinName) {
+        this.setState({
+          pinName: editingPin.pinName,
+          imageUrl: editingPin.imageUrl,
+          boardId: editingPin.boardId,
+          isEditing: true,
+        });
+      }
     }
 
     changeImageEvent = (e) => {
@@ -27,8 +42,6 @@ class PinForm extends React.Component {
       e.preventDefault();
       this.setState({ pinName: e.target.value });
     }
-
-    // boardId?
 
     savePinEvent = (e) => {
       e.preventDefault();
@@ -45,7 +58,23 @@ class PinForm extends React.Component {
       createPin(newPin);
     }
 
+    editPinEvent = (e) => {
+      e.preventDefault();
+      const { imageUrl, pinName, boardId } = this.state;
+      const { updatePin, editingPin } = this.props;
+
+      const pinWithChanges = {
+        imageUrl,
+        pinName,
+        boardId,
+        uid: authData.getUid(),
+      };
+
+      updatePin(editingPin.id, pinWithChanges);
+    }
+
     render() {
+      const { imageUrl, pinName, isEditing } = this.state;
       return (
             <form className="col-6 offset-3">
         <div className="form-group">
@@ -55,6 +84,7 @@ class PinForm extends React.Component {
             className="form-control"
             id="imageUrl"
             placeholder="Enter Pin Image Url"
+            value={imageUrl}
             onChange={this.changeImageEvent}
           />
         </div>
@@ -65,10 +95,16 @@ class PinForm extends React.Component {
             className="form-control"
             id="pinName"
             placeholder="Pin Name"
+            value={pinName}
             onChange={this.changeNameEvent}
           />
         </div>
-        <button className="btn btn-dark" onClick={this.savePinEvent}><i class="fas fa-save"></i></button>
+        {
+          isEditing
+            ? <button className="btn btn-light" onClick={this.editPinEvent}><i className="fas fa-pen-nib"></i></button>
+            : <button className="btn btn-dark" onClick={this.savePinEvent}><i className="fas fa-save"></i></button>
+        }
+
         </form>
       );
     }
