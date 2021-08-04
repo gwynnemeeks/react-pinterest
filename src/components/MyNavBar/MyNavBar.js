@@ -19,17 +19,17 @@ class MyNavBar extends React.Component {
 
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <a className="navbar-brand" href="/"><sup>GWYN</sup> | <sub>TERST</sub></a>
-      <ul className="navbar-nav ml-auto">
-        <li className="nav-item">
-          {
-            authed
-              ? <button className="nav-link btn btn-danger text-light logout-button" onClick={this.logOutEvent}><i className="fas fa-sign-out-alt"></i> Logout </button>
-              : <Auth />
-          }
-        </li>
-      </ul>
-    </nav>
+        <a className="navbar-brand" href="/"><sup>GWYNN</sup> | <sub>TERST</sub></a>
+        <ul className="navbar-nav ml-auto">
+          <li className="nav-item">
+            {
+              authed
+                ? <button className="nav-link btn btn-danger text-light logout-button" onClick={this.logOutEvent}><i className="fas fa-sign-out-alt"></i> Logout </button>
+                : <Auth />
+            }
+          </li>
+        </ul>
+      </nav>
     );
   }
 }

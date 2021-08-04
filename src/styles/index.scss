@@ -1,7 +1,17 @@
 @import 'variables';
-@import '~bootstrap/dist/css/bootstrap.min.css';
+
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/bootstrap';
+
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
 
 body {
   background-color: $favColor;
-}
+};
+
+$theme-colors: (
+  "danger": #19011f,
+  "secondary": #601172,
+  "warning": #f09f44,
+);
