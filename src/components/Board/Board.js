@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import boardShape from '../../helpers/propz/boardShape';
 
+import '../../styles/index.scss';
+
 class Board extends React.Component {
   static propTypes = {
     board: boardShape.boardShape,
@@ -35,11 +37,9 @@ class Board extends React.Component {
       <div className="card">
         <div className="card-body">
           <h4 className="card-title">{board.boardName}</h4>
-          <div className="btn-group" role="group">
-            <button className="btn btn-secondary" onClick={this.singleBoardEvent}><i className="far fa-eye"></i></button>
-            <button className="btn btn-warning" onClick={this.editBoardEvent}><i className="far fa-edit"></i></button>
-            <button className="btn btn-danger" onClick={this.deleteBoardEvent}><i className="fas fa-eraser"></i></button>
-          </div>
+          <button className="btn btn-secondary" onClick={this.singleBoardEvent}><i className="far fa-eye"></i></button>
+          <button className="btn btn-warning" onClick={this.editBoardEvent}><i className="far fa-edit"></i></button>
+          <button className="btn btn-danger" onClick={this.deleteBoardEvent}><i className="fas fa-eraser"></i></button>
         </div>
       </div>
     );
