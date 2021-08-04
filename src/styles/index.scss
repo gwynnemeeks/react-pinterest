@@ -6,14 +6,8 @@ body {
   background-color: $favColor;
 }
 
-btn-secondary {
-  background: $secondary
-}
-
-btn-warning {
-  background: $warning
-}
-
-btn-danger {
-  background: $danger
-}
+$theme-colors: (
+  "danger": rgb(25, 1, 31),
+  "secondary": rgb(96, 17, 114),
+  "warning": rgb(240, 159, 68),
+)
