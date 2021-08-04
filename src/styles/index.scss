@@ -1,17 +1,38 @@
-@import 'variables';
+@import "variables";
 
-@import '~bootstrap/scss/functions';
-@import '~bootstrap/scss/variables';
-@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/bootstrap";
 
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
 
+@import url("https://fonts.googleapis.com/css2?family=Advent+Pro&display=swap");
+
 body {
   background-color: $favColor;
-};
+  font-family: "Advent Pro", sans-serif;
+}
 
-$theme-colors: (
-  "danger": #19011f,
-  "secondary": #601172,
-  "warning": #f09f44,
-);
+.btn {
+  margin: 5px;
+}
+
+.btn-warning {
+  background-color: #f09f44;
+  border-color: #f09f44;
+}
+
+.btn-danger {
+  background-color: #19011f;
+  border-color: #19011f;
+}
+
+.btn-secondary {
+  background-color: #601172;
+  border-color: #601172;
+}
+
+.fa-sign-out-alt {
+  padding-left: 5px;
+  padding-right: 3px;
+}
