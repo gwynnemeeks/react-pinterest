@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import boardShape from '../../helpers/propz/boardShape';
 
-import '../../styles/index.scss';
+import './board.scss';
 
 class Board extends React.Component {
   static propTypes = {

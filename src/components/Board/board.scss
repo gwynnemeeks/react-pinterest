@@ -1,5 +1,18 @@
-@import 'index.scss';
+.btn {
+  margin: 5px;
+}
 
-.btn btn-warning {
-    background-color: $warning;
-} 
+.btn-warning {
+  background-color: #f09f44;
+  border-color: #f09f44;
+}
+
+.btn-danger {
+  background-color: #19011f;
+  border-color: #19011f;
+}
+
+.btn-secondary {
+  background-color: #601172;
+  border-color: #601172;
+}
