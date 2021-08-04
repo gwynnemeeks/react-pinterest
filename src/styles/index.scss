@@ -10,8 +10,21 @@ body {
   background-color: $favColor;
 }
 
-// $theme-colors: (
-//   "danger": #19011f,
-//   "secondary": #601172,
-//   "warning": #f09f44,
-// );
+.btn {
+  margin: 5px;
+}
+
+.btn-warning {
+  background-color: #f09f44;
+  border-color: #f09f44;
+}
+
+.btn-danger {
+  background-color: #19011f;
+  border-color: #19011f;
+}
+
+.btn-secondary {
+  background-color: #601172;
+  border-color: #601172;
+}
