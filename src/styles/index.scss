@@ -6,8 +6,11 @@
 
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
 
+@import url("https://fonts.googleapis.com/css2?family=Advent+Pro&display=swap");
+
 body {
   background-color: $favColor;
+  font-family: "Advent Pro", sans-serif;
 }
 
 .btn {
@@ -27,4 +30,9 @@ body {
 .btn-secondary {
   background-color: #601172;
   border-color: #601172;
+}
+
+.fa-sign-out-alt {
+  padding-left: 5px;
+  padding-right: 3px;
 }
